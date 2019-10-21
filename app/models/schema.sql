@@ -1,5 +1,6 @@
-DROP DATABASE IF EXISTS day_db;
-CREATE DATABASE day_db;
+DROP DATABASE IF EXISTS calendar_db;
+CREATE DATABASE calendar_db;
 
-DROP DATABASE IF EXISTS volunteer_db;
-CREATE DATABASE volunteer_db;
+
+
+
