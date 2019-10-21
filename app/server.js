@@ -18,10 +18,10 @@ app.use(express.static("app/public"));
 
 // Routes
 // =============================================================
-require("./app/routes/apiRoutes.js")(app);
+require("./routes/apiRoutes.js")(app);
 
 // Here we introduce HTML routing to serve different HTML files
-require("./app/routes/htmlRoutes.js")(app);
+require("./routes/htmlRoutes.js")(app);
 
 // Starts the server to begin listening
 // =============================================================
