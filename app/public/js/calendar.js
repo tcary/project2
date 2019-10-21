@@ -55,6 +55,7 @@ function showCalendar(month, year) {
                 let cell = document.createElement("td");
                 let cellText = document.createTextNode("");
                 cell.appendChild(cellText);
+                cell.attr("data-name", date);
                 row.appendChild(cell);
             }
             else if (date > daysInMonth) {
