@@ -4,3 +4,30 @@ header {
 .form-control {
     size: 300px;
 }
+.frm {
+    margin: 5%;
+    width: 960px;
+}
+.container {
+    margin-left: 5%;
+    /* margin-right: 5%; */
+}
+footer {
+    text-align: center;
+    background-color: #fab83c;
+    margin-top: 5%;
+}
+.down {
+    margin-bottom: 0%;
+    padding: 2%;
+}
+.volunteer-view {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin-left: 70%;
+    margin-bottom: 20%;
+}
+.container.col-sm-4.col-md-7.col-lg-4.mt-5 {
+    margin-right: 5%;
+}
