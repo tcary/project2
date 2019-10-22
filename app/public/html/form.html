@@ -16,7 +16,12 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        
+
+
+        
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
             integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
             crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="styles/styles.css">
@@ -118,39 +123,27 @@
                     };
                 }
                 console.log(user);
-
-                $("#mainForm input, #mainForm select, #mainForm textarea").val("");
-
-                function addUser(user) {
-                    $.ajax({
-                        method: "PUT",
-                        url: "/api/schedule",
-                        data: user
-                        // this one or the one below. what is the difference that is the question? 
-                    }).then(function (data) {
+                
+            $("#mainForm input, #mainForm select, #mainForm textarea").val("");
+        
+            
+                // $.ajax({
+                //     method: "POST",
+                //     url: "/api/schedule",
+                //     data: user
+                // // this one or the one below. what is the difference that is the question? 
+                // }).then(function(data) {
+                //     console.log("add.html", data);
+                //     alert("Adding to schedule...");
+                //     });
+                // this one or the one above. what is the difference that is the question?
+                $.post("/api/schedule", user)
+                    .then(function(data) {
                         console.log("add.html", data);
                         alert("Adding to schedule...");
                     });
-                    // this one or the one above. what is the difference that is the question?
-                    $.post("/api/schedule", user)
-                        .then(function (data) {
-                            console.log("add.html", data);
-                            alert("Adding to schedule...");
-                        });
-
-                }
-
-                $("#mainForm input, #mainForm select, #mainForm textarea").val("");
-
-                function addUser(user) {
-                    $.ajax({
-                        method: "PUT",
-                        url: "/api/days",
-                        data: user
-
-                    }).then(getTodos);
-                }
-
+                
+        
 
             })
 
