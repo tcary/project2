@@ -5,42 +5,34 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<<<<<<< HEAD
-        
-=======
 
         <link rel="stylesheet" type="text/css" href="styles/reset.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="styles/styles.css">
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
 
->>>>>>> b79db43b24f2e9eb6b80bfda7b6c26527ca0b0f7
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"
-      ></script>
         
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
         
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
             integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"
-        ></script>
-            
-        <link rel="stylesheet" type="text/css" href="../styles/reset.css">
-        <link rel="stylesheet" type="text/css" href="../styles/styles.css">
-
+            crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="styles/styles.css">
         <title>Form</title>
     </head>
 
     <body>
-       <div id = "mainForm">
+        <header><img src="https://bethelrussianchurch.org/wp-content/themes/kickstart-yo-bethel/build/img/logo.png">
+        </header>
+        <div id="mainForm">
+
             <form class="form">
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Ministry select</label>
@@ -51,69 +43,79 @@
                         <option>Baby Steps</option>
                     </select>
                 </div>
-                
 
-            <div class="form-group">
-                <label for="exampleName">Your Name</label>
+
+                <div class="form-group">
+                    <label for="exampleName">Your Name</label>
                     <input type="text" class="form-control" id="name" aria-describedby="namelHelp"
                         placeholder="Enter name">
                     <small id="nameHelp" class="form-text text-muted">We'll never share your name with anyone
-                    else.</small>
-            </div>
-            
-            <div class="form-group">
-                <label for="examplePhone">Phone number</label>
+
+                        else.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="examplePhone">Phone number</label>
+
                     <input type="number" class="form-control" id="phone" aria-describedby="phoneHelp"
                         placeholder="Enter phone number">
-                        <small id="phoneHelp" class="form-text text-muted">We'll never share your phone number with anyone
+                    <small id="phoneHelp" class="form-text text-muted">We'll never share your phone number with anyone
                         else.</small>
-            </div>
-            
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
                     <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
                         placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                         else.</small>
-            </div>
-        <!-- <div class="form-group">
+                </div>
+                <!-- <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
                         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
             </div> -->
-            
+
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">In a few words please describe what you are passionate
-                    about and how would you like that to reflect on your service?</label>
-                    <textarea class="form-control" id="note" rows="3"></textarea>
+                        about and how would you like that to reflect on your service?</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
 
-                <button id = "subBtn" type="submit" class="btn btn-primary submit">Submit</button>
-        
+                <button id="subBtn" type="submit" class="btn btn-primary submit">Submit</button>
+                <textarea class="form-control" id="note" rows="3"></textarea>
             </form>
-    </div>
+        </div>
+        <footer id="foot">
+            <p class="down">&copy 2019 DU BOOTCAMP TEAM</p>
+        </footer>
 
-    <script>
-        
-        $("#subBtn").on("click", function(event){
+
+
+
+
+
+        <script>
+
+            $("#subBtn").on("click", function (event) {
                 event.preventDefault();
                 // console.log("I was clicked")
-                
-                function validateForm(){
+
+                function validateForm() {
                     let valid = true;
-                        console.log("valid");
-                        $(".form-control").each(function(){
-                            if ($(this).val() === ("") || $(this).val === ("empty")){
-                                valid = false;
-                                // console.log("Form is not valid")
-                            };
-                        });
+                    console.log("valid");
+                    $(".form-control").each(function () {
+                        if ($(this).val() === ("") || $(this).val === ("empty")) {
+                            valid = false;
+                            // console.log("Form is not valid")
+                        };
+                    });
                     return valid;
                 };
-                        
-                if (validateForm()){
+
+                if (validateForm()) {
                     console.log("form validated");
                     var user = {
-                        ministry : $("#ministrySelect").val().trim(),
+                        ministry: $("#ministrySelect").val().trim(),
                         name: $("#name").val().trim(),
                         phone: $("#phone").val().trim(),
                         email: $("#email").val().trim(),
@@ -121,29 +123,50 @@
                     };
                 }
                 console.log(user);
-                
-            $("#mainForm input, #mainForm select, #mainForm textarea").val("");
-        
-        function addUser(user) {
-            $.ajax({
-                method: "PUT",
-                url: "/api/days",
-                data: user
-            
-            }).then(getTodos);
-  }
+
+                $("#mainForm input, #mainForm select, #mainForm textarea").val("");
+
+                function addUser(user) {
+                    $.ajax({
+                        method: "PUT",
+                        url: "/api/schedule",
+                        data: user
+                        // this one or the one below. what is the difference that is the question? 
+                    }).then(function (data) {
+                        console.log("add.html", data);
+                        alert("Adding to schedule...");
+                    });
+                    // this one or the one above. what is the difference that is the question?
+                    $.post("/api/schedule", user)
+                        .then(function (data) {
+                            console.log("add.html", data);
+                            alert("Adding to schedule...");
+                        });
+
+                }
+
+                $("#mainForm input, #mainForm select, #mainForm textarea").val("");
+
+                function addUser(user) {
+                    $.ajax({
+                        method: "PUT",
+                        url: "/api/days",
+                        data: user
+
+                    }).then(getTodos);
+                }
 
 
-        })
-
-            
+            })
 
 
 
 
 
 
-    </script>
+
+
+        </script>
     </body>
 
 </html>
