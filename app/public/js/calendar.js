@@ -32,6 +32,7 @@ function showCalendar(month, year) {
 
     let firstDay = (new Date(year, month)).getDay();
     let daysInMonth = 32 - new Date(year, month, 32).getDate();
+    console.log(firstDay, currentMonth, daysInMonth);
 
     let tbl = document.getElementById("calendar-body"); // body of the calendar
 
@@ -44,22 +45,28 @@ function showCalendar(month, year) {
     selectMonth.value = month;
 
     // creating all cells
-    let date = 1;
-    for (let i = 0; i < 6; i++) {
+    let dateIndex = 0;
+    let date = dateIndex + 1;
+    // let date1 = $(this).attr("data-name");
+    for (let i = 0; i < 5; i++) {
         // creates a table row
         let row = document.createElement("tr");
 
         //creating individual cells, filing them up with data.
         for (let j = 0; j < 7; j++) {
-            if (i === 0 && j < firstDay) {
+            if (i === 0 && dateIndex < firstDay) {
                 let cell = document.createElement("td");
                 let cellText = document.createTextNode("");
-                cell.appendChild(cellText);
-                cell.attr("data-name", date);
-                row.appendChild(cell);
+                cell.append(cellText);
+                row.append(cell);
             }
-            else if (date > daysInMonth) {
-                break;
+            else if (i === 4 && date > daysInMonth) {
+                console.log(dateIndex);
+                let cell = document.createElement("td");
+                let cellText = document.createTextNode("");
+                // cell.attr("data-name", date1);
+                cell.append(cellText);
+                row.append(cell);
             }
 
             else {
@@ -68,15 +75,21 @@ function showCalendar(month, year) {
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                     cell.classList.add("bg-info");
                 } // color today's date
+                // let cell = $("<td><button></button></td>")
+                $(cell).attr("data-date", date);
+                $(cell).addClass("activeDay");
                 cell.appendChild(cellText);
                 row.appendChild(cell);
                 date++;
             }
-
-
+            dateIndex++;
         }
 
         tbl.appendChild(row); // appending each row into calendar body.
     }
 
 }
+$(".activeDay").on("click", function () {
+    // $(this).
+    console.log($(this).data("date"));
+})
