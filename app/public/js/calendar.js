@@ -32,7 +32,7 @@ function showCalendar(month, year) {
 
     let firstDay = (new Date(year, month)).getDay();
     let daysInMonth = 32 - new Date(year, month, 32).getDate();
-    console.log(firstDay, currentMonth, daysInMonth);
+    // console.log(firstDay, currentMonth, daysInMonth);
 
     let tbl = document.getElementById("calendar-body"); // body of the calendar
 
@@ -61,7 +61,7 @@ function showCalendar(month, year) {
                 row.append(cell);
             }
             else if (i === 4 && date > daysInMonth) {
-                console.log(dateIndex);
+                // console.log(dateIndex);
                 let cell = document.createElement("td");
                 let cellText = document.createTextNode("");
                 // cell.attr("data-name", date1);
@@ -90,6 +90,16 @@ function showCalendar(month, year) {
 
 }
 $(".activeDay").on("click", function () {
-    // $(this).
+    $(".volunteer-view").empty();
+    let clickedDay = $(this).data("date");
     console.log($(this).data("date"));
+    for (let i = 0; i <= 5; i++) {
+        let volDiv = $("<div>");
+        volDiv.addClass("volDiv"); // adding a class
+        let input = document.createElement("input");
+        input.setAttribute("type", "text");
+        volDiv.html("");
+        $(".volunteer-view").append(input);
+        let volName = $();
+    }
 })
