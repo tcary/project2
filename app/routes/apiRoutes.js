@@ -64,11 +64,18 @@ module.exports = function (app) {
     });
   });
   
-  //"/api/schedule" 
+  // "/api/schedule" 
   app.post("/api/form", function(req, res){
-    db.Volunteer // add individual volunteer
-  }).then(function(data){
-    res.redirect("/calendar.html")
+    db.Volunteer.create(req.body).then(function(data){
+      res.redirect("/calendar")
+     
+    })
+      // ministry: req.body.ministry,
+      // name: req.body.name,
+      // phone: req.body.phone,
+      // email: req.body.email,
+      // note: req.body.note
+     // add individual volunteer
   })
 
 };
