@@ -30,17 +30,20 @@
     <body>
         <header><img src="https://bethelrussianchurch.org/wp-content/themes/kickstart-yo-bethel/build/img/logo.png">
         </header>
-        <div id="mainForm">
 
+        <div id="mainForm">
             <form class="form">
+
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Ministry select</label>
+
                     <select class="form-control" id="ministrySelect">
                         <option>Choose one</option>
                         <option>Welcome Ministry</option>
                         <option>Sunday School</option>
                         <option>Baby Steps</option>
                     </select>
+
                 </div>
 
 
@@ -49,7 +52,6 @@
                     <input type="text" class="form-control" id="name" aria-describedby="namelHelp"
                         placeholder="Enter name">
                     <small id="nameHelp" class="form-text text-muted">We'll never share your name with anyone
-
                         else.</small>
                 </div>
 
@@ -77,53 +79,47 @@
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">In a few words please describe what you are passionate
                         about and how would you like that to reflect on your service?</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" id="note" rows="3"></textarea>
                 </div>
 
                 <button id="subBtn" type="submit" class="btn btn-primary submit">Submit</button>
                 <textarea class="form-control" id="note" rows="3"></textarea>
             </form>
         </div>
+
         <footer id="foot">
             <p class="down">&copy 2019 DU BOOTCAMP TEAM</p>
         </footer>
-
-
-
-
-
 
         <script>
 
             $("#subBtn").on("click", function (event) {
                 event.preventDefault();
-                // console.log("I was clicked")
 
-                function validateForm() {
-                    let valid = true;
-                    console.log("valid");
-                    $(".form-control").each(function () {
-                        if ($(this).val() === ("") || $(this).val === ("empty")) {
-                            valid = false;
-                            // console.log("Form is not valid")
-                        };
-                    });
-                    return valid;
+                var user = {
+                    ministry: $("#ministrySelect").val().trim(),
+                    name: $("#name").val().trim(),
+                    phone: $("#phone").val().trim(),
+                    email: $("#email").val().trim(),
+                    note: $("#note").val().trim()
                 };
-
-                if (validateForm()) {
-                    console.log("form validated");
-                    var user = {
-                        ministry: $("#ministrySelect").val().trim(),
-                        name: $("#name").val().trim(),
-                        phone: $("#phone").val().trim(),
-                        email: $("#email").val().trim(),
-                        note: $("#note").val().trim(),
-                    };
-                }
                 console.log(user);
 
+                // Here we are clearing the form 
                 $("#mainForm input, #mainForm select, #mainForm textarea").val("");
+
+                // here we save the user in the local storage
+                localStorage.setItem("user", JSON.stringify(user));
+
+                // here we send the data to the back end. 
+
+                $.post("/api/form", user) //
+                    .then(function (data) {
+                        console.log("add.html", data);
+                        alert("Adding to schedule...");
+                        window.location.replace("./calendar.html")
+                    });
+
 
 
                 // $.ajax({
@@ -136,22 +132,14 @@
                 //     alert("Adding to schedule...");
                 //     });
                 // this one or the one above. what is the difference that is the question?
-                // $.post("/api/schedule", user)
-                //     .then(function (data) {
-                //         console.log("add.html", data);
-                //         alert("Adding to schedule...");
-                //     });
 
 
 
             })
+            //on click of day in the calendar, 
+            $.get("/api/days/:day").then(function () {
 
-
-
-
-
-
-
+            })
 
         </script>
     </body>

@@ -36,9 +36,9 @@ module.exports = function (app) {
       where: {
         name: req.params.day
       },
-      include: [db.Volunteer]
+      include: [db.Volunteer]  // display: flex
     }).then(function (days) {
-      res.json(days);
+      res.render("index", days );
     });
   });
 
@@ -66,6 +66,11 @@ module.exports = function (app) {
   });
 
   //"/api/schedule" 
+  app.post("/api/form", function(req, res){
+    db.Volunteer // add individual volunteer
+  }).then(function(data){
+    res.redirect("/calendar.html")
+  })
 
 };
 
