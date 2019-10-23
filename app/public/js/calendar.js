@@ -102,4 +102,7 @@ $(".activeDay").on("click", function () {
         $(".volunteer-view").append(input);
         let volName = $();
     }
+    $.get(`/api/days/${clickedDay}`).then(function (data) {
+        console.log(data);
+    })
 })

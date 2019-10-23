@@ -25,7 +25,8 @@ module.exports = function (app) {
     db.Day.findAll({
       include: [db.Volunteer]
     }).then(function (days) {
-      res.json(days);
+      console.log(days);
+      // res.render("index", days);
     });
   });
 
