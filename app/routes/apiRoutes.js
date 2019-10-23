@@ -67,7 +67,7 @@ module.exports = function (app) {
   // "/api/schedule" 
   app.post("/api/form", function(req, res){
     db.Volunteer.create(req.body).then(function(data){
-      res.redirect("/calendar")
+      res.redirect("/html/calendar")
      
     })
       // ministry: req.body.ministry,
