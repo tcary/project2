@@ -1,7 +1,7 @@
 // *********************************************************************************
 // api-routes.js - this file offers a set of routes for displaying and saving data to the db
 // *********************************************************************************
-
+const express = require("express");
 // Dependencies
 // =============================================================
 
@@ -24,8 +24,8 @@ module.exports = function (app) {
   app.get("/api/days", function (req, res) {
     db.Day.findAll({
       include: [db.Volunteer]
-    }).then(function (days) {
-      console.log(days);
+    }).then(function (data) {
+      console.log(data);
       // res.render("index", days);
     });
   });
@@ -37,8 +37,9 @@ module.exports = function (app) {
         name: req.params.day
       },
       include: [db.Volunteer]  // display: flex
-    }).then(function (days) {
-      res.render("index", days );
+    }).then(function (data) {
+      res.json(data);
+      console.log(data);
     });
   });
 
@@ -49,8 +50,8 @@ module.exports = function (app) {
         name: req.params.day
       }
     }).then(function (day) {
-      day.getVolunteers().then(function (volunteers) {
-        if (volunteers.length < 5) {
+      day.getVolunteer().then(function (volunteer) {
+        if (volunteer.length < 5) {
           // maybe pass in the id number below as a key/val pair from the front-end?
           // that way you could access it here using req.body.volunteerId (or some such)
           day.addVolunteer(1).then(function (volunteer) {
@@ -66,10 +67,11 @@ module.exports = function (app) {
   });
 
   //"/api/schedule" 
-  app.post("/api/form", function(req, res){
-    db.Volunteer // add individual volunteer
-  }).then(function(data){
-    res.redirect("/calendar.html")
+  app.post("/api/form", function (req, res) {
+    db.Volunteer.create(req.body).then(function (data) {
+      console.log("dfghjk");
+      res.redirect("/calendar")
+    })
   })
 
 };
