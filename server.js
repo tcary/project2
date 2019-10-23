@@ -3,7 +3,7 @@
 // Dependencies
 // =============================================================
 var express = require("express");
-
+var db = require("./app/models");
 // Sets up the Express App
 // =============================================================
 var app = express();
@@ -16,6 +16,12 @@ app.use(express.json());
 // Static directory to be served
 app.use(express.static("app/public"));
 
+// Set Handlebars.
+var exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 // Routes
 // =============================================================
 require("./app/routes/apiRoutes.js")(app);
@@ -25,6 +31,9 @@ require("./app/routes/htmlRoutes.js")(app);
 
 // Starts the server to begin listening
 // =============================================================
-app.listen(PORT, function () {
-    console.log("App listening on PORT " + PORT);
+db.sequelize.sync({}).then(function () {
+
+    app.listen(PORT, function () {
+        console.log("App listening on PORT " + PORT);
+    })
 });
