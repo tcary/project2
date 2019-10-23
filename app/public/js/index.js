@@ -17,13 +17,13 @@ $("#subBtn").on("click", function (event) {
     // here we save the user in the local storage
 
     // here we send the data to the back end.
-        window.location.href = "/calendar"
+        // window.location.href = "/calendar"
 
     $.post("/api/form", user) //
         .then(function (data) {
             console.log("add.html", data);
-            localStorage.setItem("userId", data);
-            console.log(data);
+            localStorage.setItem("userId", data.id);
+            console.log(data.id);
 
         });
 
@@ -42,6 +42,6 @@ $("#subBtn").on("click", function (event) {
 
 })
 //on click of day in the calendar,
-$.get("/api/days/:day").then(function () {
+// $.get("/api/days/:day").then(function () {
 
-})
+// })

@@ -2,7 +2,7 @@ module.exports = function (sequelize, DataTypes) {
     var Volunteer = sequelize.define("Volunteer", {
         ministry: DataTypes.STRING,
         name: DataTypes.STRING,
-        phone: DataTypes.INTEGER,
+        phone: DataTypes.STRING,
         email: {
             type: DataTypes.STRING,
             validate: {
