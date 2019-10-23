@@ -92,14 +92,21 @@ function showCalendar(month, year) {
 $(".activeDay").on("click", function () {
 
     $(".volunteer-view").empty();
+<<<<<<< HEAD
     $("#subBtn").show();
     let clickedDay = {
         day: $(this).data("date")
     }
+=======
+    $("#submit").show();
+    let clickedDay = $(this).data("date")
+    
+>>>>>>> df0cacc38928f6c7419726b55190aa6254c58474
 
     // console.log(clickedDay.day)
     // console.log(today)
 
+    // Add logic to make sure the pass date is not able to be selected. 
     // if (clickedDay.day < today) {
     //     return alert("Time Mashine is broken")
 
@@ -116,25 +123,30 @@ $(".activeDay").on("click", function () {
         $(".volunteer-view").append(input);
         let volName = $();
     }
-    $.get(`/api/days/${clickedDay}`).then(function (data) {
+    // $.ajax(`/api/days/${clickedDay}`).then(function (data) {
+        
+    //     console.log(data);
 
-        // if (data === null && data < 5) {
-        //     localStorage.setItem("day", JSON.stringify(clickedDay));
+    // })
+    
+    // $.put(`/api/days${clickedDay}`).then(function(data){
+    //     console.log("I have not idea what Im doing.")
+    // })
 
-        //     let one = localStorage.getItem("user")
-        //     let two = localStorage.getItem("day")
-        //     var newUser = { one, two }
+    $.ajax({
+        method: "PUT",
+        url: `/api/days/${clickedDay}`,
+        data: {userId:  localStorage.getItem("userId")}
+      })
+        .then(function() {
+        //   window.location.href = "/blog";
+        console.log("You are in business MTF")
+        });
 
-        //     console.log(newUser)
+
+        
 
 
-
-
-        // }
-
-
-        // console.log(data);
-    })
 
 
 })
