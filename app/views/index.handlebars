@@ -3,10 +3,10 @@
 <h2>Volunteers that are working!</h2>
 
 <ul>
-  {{#each volunteer}}
-    {{#unless sleepy}}
-      {{> cats/cat-block sleep=true}}
-    {{/unless}}
+  {{#each volunteers}}
+    {{#if working}}
+      {{> volunteers/volunteer-block working=false}}
+    {{/if}}
   {{/each}}
 </ul>
 

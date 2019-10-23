@@ -111,14 +111,14 @@
                 // here we save the user in the local storage
                 localStorage.setItem("user", JSON.stringify(user));
 
+                window.location.href = "/calendar"
                 // here we send the data to the back end. 
 
-                $.post("/api/form", user) //
-                    .then(function (data) {
-                        console.log("add.html", data);
-                        alert("Adding to schedule...");
-                        window.location.replace("./calendar.html")
-                    });
+                // $.post("/api/form", user) //
+                //     .then(function (data) {
+                //         console.log("add.html", data);
+                //         alert("Adding to schedule...");
+                //     });
 
 
 
