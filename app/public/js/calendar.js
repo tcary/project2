@@ -100,6 +100,7 @@ $(".activeDay").on("click", function () {
     // console.log(clickedDay.day)
     // console.log(today)
 
+    // Add logic to make sure the pass date is not able to be selected. 
     // if (clickedDay.day < today) {
     //     return alert("Time Mashine is broken")
 
@@ -118,19 +119,11 @@ $(".activeDay").on("click", function () {
     }
     $.get(`/api/days/${clickedDay}`).then(function (data) {
 
-        // if (data === null && data < 5) {
-        //     localStorage.setItem("day", JSON.stringify(clickedDay));
-
-        //     let one = localStorage.getItem("user")
-        //     let two = localStorage.getItem("day")
-        //     var newUser = { one, two }
-
-        //     console.log(newUser)
+        
 
 
 
-
-        // }
+        
 
 
         // console.log(data);

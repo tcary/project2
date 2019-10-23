@@ -14,8 +14,11 @@ module.exports = function (app) {
 
   // 1) add relationships to models
   // 2) remove timestamps on tables (to make importing CSV data easier)
+  
   // 3) seed days table
-  // 4) have volunteer fill out form, then create volunteer in table and save volunteerId to front-end somewhere (localStorage?)
+
+  // done 4) have volunteer fill out form, then create volunteer in table and save volunteerId to front-end somewhere (localStorage?)
+  
   // 5) on click of day, do db.Day.findOne({ where: { name: "MM-DD" }})
   // 6) take resulting day object and run day.addVolunteer(idHere)
   // 7) GET route should run `include: [db.Volunteer]` so that it includes an array of committed volunteers 
@@ -26,7 +29,7 @@ module.exports = function (app) {
       include: [db.Volunteer]
     }).then(function (data) {
       console.log(data);
-      // res.render("index", days);
+      res.json("index", days);
     });
   });
 
@@ -34,7 +37,7 @@ module.exports = function (app) {
   app.get("/api/days/:day", function (req, res) {
     db.Day.findOne({
       where: {
-        name: req.params.day
+        id: req.params.day
       },
       include: [db.Volunteer]  // display: flex
     }).then(function (data) {
