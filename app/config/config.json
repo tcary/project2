@@ -1,16 +1,11 @@
 {
   "development": {
     "username": "root",
-    "password": "root",
+    "password": "Vanilla1",
     "database": "calendar_db",
-<<<<<<< HEAD
-    "host": "localhost",
-    "dialect": "mysql"
-=======
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "port": 8889
->>>>>>> master
+    "port": 3306
   },
   "test": {
     "username": "root",

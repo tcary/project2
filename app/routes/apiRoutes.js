@@ -65,21 +65,6 @@ module.exports = function (app) {
       });
     });
   });
-<<<<<<< HEAD
-  
-  // "/api/schedule" 
-  app.post("/api/form", function(req, res){
-    db.Volunteer.create(req.body).then(function(data){
-      res.redirect("/html/calendar")
-     
-    })
-      // ministry: req.body.ministry,
-      // name: req.body.name,
-      // phone: req.body.phone,
-      // email: req.body.email,
-      // note: req.body.note
-     // add individual volunteer
-=======
 
   //"/api/schedule" 
   app.post("/api/form", function (req, res) {
@@ -87,7 +72,6 @@ module.exports = function (app) {
       console.log("dfghjk");
       res.redirect("/calendar")
     })
->>>>>>> master
   })
 
 };
