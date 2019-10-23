@@ -93,9 +93,8 @@ $(".activeDay").on("click", function () {
 
     $(".volunteer-view").empty();
     $("#submit").show();
-    let clickedDay = {
-        day: $(this).data("date")
-    }
+    let clickedDay = $(this).data("date")
+    
 
     // console.log(clickedDay.day)
     // console.log(today)
@@ -117,17 +116,30 @@ $(".activeDay").on("click", function () {
         $(".volunteer-view").append(input);
         let volName = $();
     }
-    $.get(`/api/days/${clickedDay}`).then(function (data) {
+    // $.ajax(`/api/days/${clickedDay}`).then(function (data) {
+        
+    //     console.log(data);
+
+    // })
+    
+    // $.put(`/api/days${clickedDay}`).then(function(data){
+    //     console.log("I have not idea what Im doing.")
+    // })
+
+    $.ajax({
+        method: "PUT",
+        url: `/api/days/${clickedDay}`,
+        data: {userId:  localStorage.getItem("userId")}
+      })
+        .then(function() {
+        //   window.location.href = "/blog";
+        console.log("You are in business MTF")
+        });
+
 
         
 
 
-
-        
-
-
-        // console.log(data);
-    })
 
 
 })

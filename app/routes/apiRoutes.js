@@ -39,7 +39,7 @@ module.exports = function (app) {
       where: {
         id: req.params.day
       },
-      include: [db.Volunteer]  // display: flex
+      include: [db.Volunteer]  
     }).then(function (data) {
       res.json(data);
       console.log(data);
@@ -48,6 +48,7 @@ module.exports = function (app) {
 
   // route to update an existing day by adding a volunteer to that day's volunteer array (if space is available!)
   app.put("/api/days/:day", function (req, res) {
+    console.log(req.params.day)
     db.Day.findOne({
       where: {
         name: req.params.day
@@ -57,7 +58,7 @@ module.exports = function (app) {
         if (volunteer.length < 5) {
           // maybe pass in the id number below as a key/val pair from the front-end?
           // that way you could access it here using req.body.volunteerId (or some such)
-          day.addVolunteer(1).then(function (volunteer) {
+          day.addVolunteer(req.body.userId).then(function (volunteer) {
             console.log("You've been added!");
             res.json(true);
           })
@@ -71,6 +72,7 @@ module.exports = function (app) {
 
   //"/api/schedule" 
   app.post("/api/form", function (req, res) {
+    console.log(req.body)
     db.Volunteer.create(req.body).then(function (data) {
       console.log("This is what Im looking for", data.id);
       res.json({ id: data.id })
