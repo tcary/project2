@@ -96,12 +96,9 @@ $(".activeDay").on("click", function () {
     let clickedDay = $(this).data("date")
 
 
-    // console.log(clickedDay.day)
-    // console.log(today)
-
     // Add logic to make sure the pass date is not able to be selected. 
-    // if (clickedDay.day < today) {
-    //     return alert("Time Mashine is broken")
+    // if (clickedDay < moment().format(D)) {
+    //     return alert("The Time Machine is broken, BRO")
 
     // }
 
@@ -130,12 +127,13 @@ $(".activeDay").on("click", function () {
     $.ajax({
         method: "PUT",
         url: `/api/days/${clickedDay}`,
-        data: { userId: localStorage.getItem("userId") }
-    })
-        .then(function () {
-            //   window.location.href = "/blog";
-            console.log("You are in business")
-        });
+
+        data: {userId:  localStorage.getItem("userId")}
+      })
+        .then(function() {
+        //   window.location.href = "/blog";
+        console.log("You are in business")
+
 
 
 

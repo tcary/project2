@@ -48,7 +48,7 @@ module.exports = function (app) {
 
   // route to update an existing day by adding a volunteer to that day's volunteer array (if space is available!)
   app.put("/api/days/:day", function (req, res) {
-    console.log(req.params.day)
+    // console.log(req.params.day)
     db.Day.findOne({
       where: {
         name: req.params.day
