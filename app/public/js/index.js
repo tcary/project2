@@ -18,15 +18,20 @@ $("#subBtn").on("click", function (event) {
     window.location.href = "/calendar"
 
     
-    // here we send the data to the back end.
+
     $.post("/api/form", user) 
+
+  
+
         .then(function (data) {
 
             localStorage.setItem("userId", data.id);
 
 
+
         });
 
 })
+
 
 

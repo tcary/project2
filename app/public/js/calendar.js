@@ -92,13 +92,9 @@ function showCalendar(month, year) {
 $(".activeDay").on("click", function () {
 
     $(".volunteer-view").empty();
-    $("#submit").show();
+    $("#subBtn").show();
     let clickedDay = $(this).data("date")
-    
-    
-    // console.log(clickedDay)
-    // console.log(typeof clickedDay)
-    // console.log(moment().format(D))
+
 
     // Add logic to make sure the pass date is not able to be selected. 
     // if (clickedDay < moment().format(D)) {
@@ -118,27 +114,29 @@ $(".activeDay").on("click", function () {
         let volName = $();
     }
     // $.ajax(`/api/days/${clickedDay}`).then(function (data) {
-        
-    //     console.log(data);
+    //     console.log(data.Volunteers)
+    //     // console.log(req.body);
+    //     // console.log(data);
+    //     let volunteers = [];
+    //     for (let i = 0; i < data.length; i++) {
+    //         volunteers.push(".volDiv");
+    //     }
 
-    // })
-    
-    // $.put(`/api/days${clickedDay}`).then(function(data){
-    //     console.log("I have not idea what Im doing.")
     // })
 
     $.ajax({
         method: "PUT",
         url: `/api/days/${clickedDay}`,
+
         data: {userId:  localStorage.getItem("userId")}
       })
         .then(function() {
         //   window.location.href = "/blog";
         console.log("You are in business")
-        });
 
 
-        
+
+
 
 
 
