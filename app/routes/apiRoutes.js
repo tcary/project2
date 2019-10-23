@@ -54,7 +54,11 @@ module.exports = function (app) {
         if (volunteer.length < 5) {
           // maybe pass in the id number below as a key/val pair from the front-end?
           // that way you could access it here using req.body.volunteerId (or some such)
-          day.addVolunteer(1).then(function (volunteer) {
+          // db.VolunteerDay.findAll({
+          //   name: req.body.id
+          // })
+          day.addVolunteer(`${req.body.id}`).then(function (volunteer) {
+            console.log(volunteer);
             console.log("You've been added!");
             res.json(true);
           })

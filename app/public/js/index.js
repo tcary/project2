@@ -16,8 +16,8 @@ $("#subBtn").on("click", function (event) {
 
     // here we save the user in the local storage
 
-    // window.location.href = "/calendar"
     // here we send the data to the back end.
+    window.location.href = "/calendar"
 
     $.post("/api/form", user) //
         .then(function (data) {
@@ -27,7 +27,7 @@ $("#subBtn").on("click", function (event) {
             // console.log(data);
         });
 
-    // $.ajax({
+    // $.ajax({                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
     //     method: "POST",
     //     url: "/api/schedule",
     //     data: user
