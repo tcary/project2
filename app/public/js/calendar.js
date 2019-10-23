@@ -95,19 +95,20 @@ $(".activeDay").on("click", function () {
     $("#submit").show();
     let clickedDay = $(this).data("date")
     
-
-    // console.log(clickedDay.day)
-    // console.log(today)
+    
+    // console.log(clickedDay)
+    // console.log(typeof clickedDay)
+    // console.log(moment().format(D))
 
     // Add logic to make sure the pass date is not able to be selected. 
-    // if (clickedDay.day < today) {
-    //     return alert("Time Mashine is broken")
+    // if (clickedDay < moment().format(D)) {
+    //     return alert("The Time Machine is broken, BRO")
 
     // }
 
 
     // console.log($(this).data("date"));
-    for (let i = 0; i <= 5; i++) {
+    for (let i = 0; i < 5; i++) {
         let volDiv = $("<div>");
         volDiv.addClass("volDiv"); // adding a class
         let input = document.createElement("input");
@@ -133,7 +134,7 @@ $(".activeDay").on("click", function () {
       })
         .then(function() {
         //   window.location.href = "/blog";
-        console.log("You are in business MTF")
+        console.log("You are in business")
         });
 
 
@@ -144,4 +145,4 @@ $(".activeDay").on("click", function () {
 
 })
 
-$("#submit").hide();
+$("#subBtn").hide();
