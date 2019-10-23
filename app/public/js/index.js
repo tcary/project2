@@ -21,27 +21,8 @@ $("#subBtn").on("click", function (event) {
 
     $.post("/api/form", user) //
         .then(function (data) {
-            console.log("add.html", data);
+
             localStorage.setItem("userId", data.id);
-            console.log(data.id);
 
         });
-
-    // $.ajax({                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
-    //     method: "POST",
-    //     url: "/api/schedule",
-    //     data: user
-    // // this one or the one below. what is the difference that is the question? 
-    // }).then(function(data) {
-    //     console.log("add.html", data);
-    //     alert("Adding to schedule...");
-    //     });
-    // this one or the one above. what is the difference that is the question?
-
-
-
 })
-//on click of day in the calendar,
-// $.get("/api/days/:day").then(function () {
-
-// })

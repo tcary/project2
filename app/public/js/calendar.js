@@ -92,16 +92,9 @@ function showCalendar(month, year) {
 $(".activeDay").on("click", function () {
 
     $(".volunteer-view").empty();
-<<<<<<< HEAD
     $("#subBtn").show();
-    let clickedDay = {
-        day: $(this).data("date")
-    }
-=======
-    $("#submit").show();
     let clickedDay = $(this).data("date")
-    
->>>>>>> df0cacc38928f6c7419726b55190aa6254c58474
+
 
     // console.log(clickedDay.day)
     // console.log(today)
@@ -114,7 +107,7 @@ $(".activeDay").on("click", function () {
 
 
     // console.log($(this).data("date"));
-    for (let i = 0; i <= 5; i++) {
+    for (let i = 0; i < 5; i++) {
         let volDiv = $("<div>");
         volDiv.addClass("volDiv"); // adding a class
         let input = document.createElement("input");
@@ -124,27 +117,28 @@ $(".activeDay").on("click", function () {
         let volName = $();
     }
     // $.ajax(`/api/days/${clickedDay}`).then(function (data) {
-        
-    //     console.log(data);
+    //     console.log(data.Volunteers)
+    //     // console.log(req.body);
+    //     // console.log(data);
+    //     let volunteers = [];
+    //     for (let i = 0; i < data.length; i++) {
+    //         volunteers.push(".volDiv");
+    //     }
 
-    // })
-    
-    // $.put(`/api/days${clickedDay}`).then(function(data){
-    //     console.log("I have not idea what Im doing.")
     // })
 
     $.ajax({
         method: "PUT",
         url: `/api/days/${clickedDay}`,
-        data: {userId:  localStorage.getItem("userId")}
-      })
-        .then(function() {
-        //   window.location.href = "/blog";
-        console.log("You are in business MTF")
+        data: { userId: localStorage.getItem("userId") }
+    })
+        .then(function () {
+            //   window.location.href = "/blog";
+            console.log("You are in business")
         });
 
 
-        
+
 
 
 
