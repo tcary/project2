@@ -90,10 +90,23 @@ function showCalendar(month, year) {
 
 }
 $(".activeDay").on("click", function () {
+
     $(".volunteer-view").empty();
     $("#submit").show();
-    let clickedDay = $(this).data("date");
-    console.log($(this).data("date"));
+    let clickedDay = {
+        day: $(this).data("date")
+    }
+
+    // console.log(clickedDay.day)
+    // console.log(today)
+
+    // if (clickedDay.day < today) {
+    //     return alert("Time Mashine is broken")
+
+    // }
+
+
+    // console.log($(this).data("date"));
     for (let i = 0; i <= 5; i++) {
         let volDiv = $("<div>");
         volDiv.addClass("volDiv"); // adding a class
@@ -104,8 +117,26 @@ $(".activeDay").on("click", function () {
         let volName = $();
     }
     $.get(`/api/days/${clickedDay}`).then(function (data) {
-        console.log(data);
+
+        // if (data === null && data < 5) {
+        //     localStorage.setItem("day", JSON.stringify(clickedDay));
+
+        //     let one = localStorage.getItem("user")
+        //     let two = localStorage.getItem("day")
+        //     var newUser = { one, two }
+
+        //     console.log(newUser)
+
+
+
+
+        // }
+
+
+        // console.log(data);
     })
+
+
 })
 
 $("#submit").hide();

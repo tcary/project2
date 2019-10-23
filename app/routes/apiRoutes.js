@@ -50,7 +50,7 @@ module.exports = function (app) {
         name: req.params.day
       }
     }).then(function (day) {
-      day.getVolunteer().then(function (volunteer) {
+      day.getVolunteers().then(function (volunteer) {
         if (volunteer.length < 5) {
           // maybe pass in the id number below as a key/val pair from the front-end?
           // that way you could access it here using req.body.volunteerId (or some such)
@@ -69,8 +69,8 @@ module.exports = function (app) {
   //"/api/schedule" 
   app.post("/api/form", function (req, res) {
     db.Volunteer.create(req.body).then(function (data) {
-      console.log("dfghjk");
-      res.redirect("/calendar")
+      console.log("This is what Im looking for", data.id);
+      res.json({ id: data.id })
     })
   })
 
