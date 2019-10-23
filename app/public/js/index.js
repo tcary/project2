@@ -17,31 +17,12 @@ $("#subBtn").on("click", function (event) {
     // here we save the user in the local storage
 
     // here we send the data to the back end.
-        // window.location.href = "/calendar"
+    window.location.href = "/calendar"
 
     $.post("/api/form", user) //
         .then(function (data) {
-            console.log("add.html", data);
+
             localStorage.setItem("userId", data.id);
-            console.log(data.id);
 
         });
-
-    // $.ajax({
-    //     method: "POST",
-    //     url: "/api/schedule",
-    //     data: user
-    // // this one or the one below. what is the difference that is the question? 
-    // }).then(function(data) {
-    //     console.log("add.html", data);
-    //     alert("Adding to schedule...");
-    //     });
-    // this one or the one above. what is the difference that is the question?
-
-
-
 })
-//on click of day in the calendar,
-// $.get("/api/days/:day").then(function () {
-
-// })

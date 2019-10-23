@@ -5,8 +5,8 @@ header {
     size: 300px;
 }
 .frm {
-    margin: 5%;
-    width: 960px;
+    margin: 5% 10% 2% 10%                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ;
+    
 }
 .container {
     margin-left: 5%;
@@ -32,4 +32,7 @@ footer {
 .flex {
     display: flex;
     flex-direction: row;
+}
+.btn {
+    background-color: #fab83c;
 }
