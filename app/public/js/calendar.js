@@ -91,6 +91,7 @@ function showCalendar(month, year) {
 }
 $(".activeDay").on("click", function () {
     $(".volunteer-view").empty();
+    $("#submit").show();
     let clickedDay = $(this).data("date");
     console.log($(this).data("date"));
     for (let i = 0; i <= 5; i++) {
@@ -102,4 +103,9 @@ $(".activeDay").on("click", function () {
         $(".volunteer-view").append(input);
         let volName = $();
     }
+    $.get(`/api/days/${clickedDay}`).then(function (data) {
+        console.log(data);
+    })
 })
+
+$("#submit").hide();

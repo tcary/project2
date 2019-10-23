@@ -21,13 +21,15 @@ footer {
     margin-bottom: 0%;
     padding: 2%;
 }
-.volunteer-view {
+/* .volunteer-view {
     display: flex;
     flex-direction: column;
     width: 200px;
     margin-left: 70%;
     margin-bottom: 20%;
-}
-.container.col-sm-4.col-md-7.col-lg-4.mt-5 {
-    margin-right: 5%;
+} */
+
+.flex {
+    display: flex;
+    flex-direction: row;
 }
