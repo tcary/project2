@@ -16,15 +16,15 @@ $("#subBtn").on("click", function (event) {
 
     // here we save the user in the local storage
 
-    // window.location.href = "/calendar"
     // here we send the data to the back end.
+        window.location.href = "/calendar"
 
     $.post("/api/form", user) //
         .then(function (data) {
-            // console.log("add.html", data);
-
+            console.log("add.html", data);
             localStorage.setItem("userId", data);
-            // console.log(data);
+            console.log(data);
+
         });
 
     // $.ajax({
