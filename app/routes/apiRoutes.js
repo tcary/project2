@@ -72,7 +72,7 @@ module.exports = function (app) {
 
   //"/api/schedule" 
   app.post("/api/form", function (req, res) {
-    // console.log(req.body)
+    console.log(req.body)
     db.Volunteer.create(req.body).then(function (data) {
       console.log("This is what Im looking for", data.id);
       res.json({ id: data.id })
