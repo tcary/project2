@@ -134,13 +134,10 @@ $(".activeDay").on("click", function () {
         //   window.location.href = "/blog";
         console.log("You are in business")
 
+    });
+
+});
 
 
+$("#subBtn").hide()
 
-
-
-
-
-})
-
-$("#subBtn").hide();
