@@ -15,21 +15,21 @@ $("#subBtn").on("click", function (event) {
     $("#mainForm input, #mainForm select, #mainForm textarea").val("");
 
 // here we redirect the user to the next page
-    window.location.href = "/calendar"
 
+
+
+$.post("/api/form", user) 
+
+
+
+.then(function (data) {
     
-
-    $.post("/api/form", user) 
-
-  
-
-        .then(function (data) {
-
-            localStorage.setItem("userId", data.id);
-
-
-
-        });
+    localStorage.setItem("userId", data.id);
+    window.location.href = "/calendar"
+    
+    
+    
+});
 
 })
 

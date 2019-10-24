@@ -135,5 +135,23 @@ $(".activeDay").on("click", function () {
     //     }
 
     // })
+
+
+    $.ajax({
+        method: "PUT",
+        url: `/api/days/${clickedDay}`,
+
+        data: {userId:  localStorage.getItem("userId")}
+      })
+        .then(function() {
+        //   window.location.href = "/blog";
+        console.log("You are in business")
+
+    });
+
 });
-$("#subBtn").hide();
+
+
+$("#subBtn").hide()
+
+
