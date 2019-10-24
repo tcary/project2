@@ -103,7 +103,7 @@ $(".activeDay").on("click", function () {
     // }
 
 
-    // console.log($(this).data("date"));
+    console.log($(this).data("date"));
     for (let i = 0; i < 5; i++) {
         let volDiv = $("<div>");
         volDiv.addClass("volDiv"); // adding a class
@@ -113,8 +113,20 @@ $(".activeDay").on("click", function () {
         $(".volunteer-view").append(input);
         let volName = $();
     }
+
+    $.ajax({
+        method: "PUT",
+        url: `/api/days/${clickedDay}`,
+
+        data: { userId: localStorage.getItem("userId") }
+    })
+        .then(function () {
+            //   window.location.href = "/blog";
+            console.log("You are in business")
+        })
+
     // $.ajax(`/api/days/${clickedDay}`).then(function (data) {
-    //     console.log(data.Volunteers)
+    //     console.log(data);
     //     // console.log(req.body);
     //     // console.log(data);
     //     let volunteers = [];
@@ -123,6 +135,7 @@ $(".activeDay").on("click", function () {
     //     }
 
     // })
+
 
     $.ajax({
         method: "PUT",
@@ -140,4 +153,5 @@ $(".activeDay").on("click", function () {
 
 
 $("#subBtn").hide()
+
 
