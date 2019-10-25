@@ -125,29 +125,35 @@ $(".activeDay").on("click", function () {
             console.log("You are in business")
         })
 
-    // $.ajax(`/api/days/${clickedDay}`).then(function (data) {
-    //     console.log(data);
-    //     // console.log(req.body);
-    //     // console.log(data);
-    //     let volunteers = [];
-    //     for (let i = 0; i < data.length; i++) {
-    //         volunteers.push(".volDiv");
-    //     }
+    $.ajax(`/api/days/${clickedDay}`).then(function (data) {
+        // console.log(req.body);
+        // console.log(data);
+        // let volunteers = [];
+        for (let i = 0; i < data.Volunteers[i].name.length; i++) {
+            console.log(data.Volunteers[i].name);
+            let volDiv = $("<div>");
+            volDiv.addClass("volDiv"); // adding a class
+            let p = document.createElement("<p>");
+            p.setAttribute("type", "text");
+            p.text(data.Volunteers[i].name);
+            volDiv.append(p);
+            $(".volunteer-view").append(volDiv);
+        }
 
-    // })
+    })
 
 
     $.ajax({
         method: "PUT",
         url: `/api/days/${clickedDay}`,
 
-        data: {userId:  localStorage.getItem("userId")}
-      })
-        .then(function() {
-        //   window.location.href = "/blog";
-        console.log("You are in business")
+        data: { userId: localStorage.getItem("userId") }
+    })
+        .then(function () {
+            //   window.location.href = "/blog";
+            console.log("You are in business")
 
-    });
+        });
 
 });
 
